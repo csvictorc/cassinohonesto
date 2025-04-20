@@ -67,11 +67,12 @@
 }
 
 .slot-machine {
-    background: #2c3e50;
+    background: #1a242d;
     padding: 20px;
     border-radius: 10px;
     max-width: 600px;
     margin: 20px auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 }
 .slot-item {
     background: #fff;
