@@ -1,0 +1,138 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #0f1923;
+    color: #2e3a47;
+    min-height: 100vh;
+    padding-top: 70px;
+}
+
+.navbar {
+    background-color: #0f1923;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar-brand, .nav-link {
+    color: #feffff !important;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #f12c4c !important;
+}
+
+.card {
+    background-color: #1a242d;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #bcbfc7;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #bcbfc7;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #f12c4c;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+p {
+    color: #bcbfc7;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #feffff;
+    text-decoration: underline;
+}
+
+.btn-play {
+    background-color: #f12c4c;
+    color: white;
+    border-radius: 10px;
+    padding: 8px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-play:hover {
+    background-color: #feffff;
+    color: #f12c4c;
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+.game-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.game-card-content {
+    display: flex;
+    flex: 1;
+    gap: 10px;
+}
+
+.game-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.game-info {
+    flex: 1;
+    margin-bottom: -35px;
+}
+
+.game-actions {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+.game-info p {
+display: none;
+}
+
+.game-info h3 {
+display: none;
+}
+
+.game-image {
+padding: 10px;
+border-radius: 20px;
+}
+
+.game-actions {
+display: none;
+}
+
+}
