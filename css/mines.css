@@ -12,6 +12,10 @@
     margin-right: -10px;
 }
 
+.gameModesModalLabel {
+    color:#0f1923
+}
+
 .cell {
     user-select: none;
     width: 50px;
@@ -54,8 +58,10 @@
     width: 100%;
     font-size: 18px;
     padding: 10px;
-}
-
+    display: block;
+    margin: 0 auto;
+  }
+  
 .button-rescue {
     background-color: #ffc107;
     color: black;
@@ -132,7 +138,6 @@
     border-radius: 10px;
     padding: 30px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-    color: #f1f1f1;
     transition: transform 0.3s ease;
 }
 
