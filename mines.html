@@ -39,32 +39,28 @@
             <div class="container">
                 <div id="game-status" class="game-status game-inactive">Aguardando início da partida...</div>
     
-                <div class="row mb-4 justify-content-center">
-                    <div class="infocontainer col-12 col-md-6 d-flex justify-content-start">
-                        <div class="info1 info-box">
-                            <p>Valor da Carteira: <span id="wallet">R$ 9999</span></p>
-                            <p>Minas: <span id="mines-count">3</span></p>
-                            <p>Seguinte: <span id="bonus">1.20x</span></p>
-                        </div>
+                <div class="row mb-1 justify-content-left">
+                    <div class="infocontainer col-12 col-md-6 d-flex flex-column flex-md-row justify-content-start m-0">
+                      <div class="info1 info-box m-0">
+                        <p class="mb-3">Valor da Carteira: <span id="wallet">R$ 9999</span></p>
+                        <p class="mb-3">Minas: <span id="mines-count">3</span></p>
+                        <p class="mb-4">Seguinte: <span id="bonus">1.20x</span></p>
+                        <p class="mb-0">Aposta: <span id="bet">R$ 100</span></p>
+                      </div>
                     </div>
-    
-                    <div class="col-12 col-md-6 d-flex justify-content-end">
-                        <div class="info2 info-box text-right">
-                            <p>Aposta: <span id="bet">R$ 100</span></p>
-                        </div>
-                    </div>
-                </div>
+                  </div>
+                  
     
                 <div class="grid" id="grid"></div>
     
-                <div class="row mt-4">
+                <div>
                     <div class="col-12 col-md-6 text-center">
                         <div class="bet-buttons">
                             <button class="btn btn-danger" onclick="changeBet(-10)">- R$10</button>
                             <button class="btn btn-success" onclick="changeBet(10)">+ R$10</button>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="d-flex justify-content-center">
                         <button id="play-btn" class="btn button-play" onclick="startGame()">Jogar</button>
                     </div>
                 </div>

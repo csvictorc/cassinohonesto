@@ -102,6 +102,40 @@ function placeMines() {
     }
 }
 
+// Código anterior permanece o mesmo...
+
+function createGrid() {
+    const gridContainer = $('#grid');
+    gridContainer.empty();
+    grid = [];
+
+    // Cria 5 linhas (cada uma com 5 colunas)
+    for (let row = 0; row < 5; row++) {
+        const rowDiv = $('<div class="row justify-content-center no-gutters"></div>');
+
+        for (let col = 0; col < 5; col++) {
+            const index = row * 5 + col;
+            const cell = $('<div></div>')
+                .addClass('cell hidden d-flex justify-content-center align-items-center')
+                .css({
+                    width: '60px',
+                    height: '60px',
+                    margin: '5px',
+                    backgroundColor: '#e5e7eb',
+                    borderRadius: '8px'
+                })
+                .html('💎')
+                .data('index', index)
+                .click(() => handleCellClick(cell));
+
+            rowDiv.append(cell);
+            grid.push({ cell, isMine: false, isRevealed: false });
+        }
+
+        gridContainer.append(rowDiv);
+    }
+}
+
 function handleCellClick(cell) {
     if (!isGameStarted) return;
     const index = cell.data('index'), currentCell = grid[index];
@@ -131,7 +165,7 @@ function handleCellClick(cell) {
     } else {
         revealedCells++;
         multiplier = Math.min(multiplier + 0.20, 5.00);
-        cell.addClass('revealed safe').removeClass('hidden');
+        cell.addClass('revealed safe').removeClass('hidden').html('✅'); // Alterado para mostrar ✅
         $('#play-btn').text(`Resgatar R$${(bet * multiplier).toFixed(2)}`).removeClass('button-play').addClass('button-rescue');
         if (!firstSafeClick) firstSafeClick = true;
 
@@ -180,7 +214,21 @@ function startGame() {
             });
             return;
         }
+    
+        // Jogo em andamento e jogador quer resgatar
+        const resgatado = (bet * multiplier).toFixed(2);
         wallet += bet * multiplier;
+    
+        Swal.fire({
+            title: 'Sucesso!',
+            text: `Você resgatou R$${resgatado} com sucesso!`,
+            icon: 'success',
+            timer: 2000,
+            showConfirmButton: false,
+            toast: true,
+            position: 'top-end'
+        });
+    
         endGame();
     } else {
         if (bet <= 0) {
@@ -192,16 +240,29 @@ function startGame() {
             });
             return;
         }
+
         wallet -= bet;
         isGameStarted = true;
         revealedCells = 0;
         multiplier = 1.00;
-        $('#game-status').text('Partida em andamento! Boa sorte!').removeClass('game-inactive').addClass('game-active');
+
+        $('#game-status')
+            .text('Partida em andamento! Boa sorte!')
+            .removeClass('game-inactive')
+            .addClass('game-active');
+
+        // Atualiza texto do botão para orientar o jogador
+        $('#play-btn')
+            .text("Clique em uma célula")
+            .removeClass('button-rescue')
+            .addClass('button-play');
+
         createGrid();
         updateWallet();
         toggleBetButtons(false);
     }
 }
+
 
 function endGame() {
     isGameStarted = false;
